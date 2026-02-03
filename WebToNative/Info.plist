@@ -54,6 +54,14 @@
 	<string>Test Login App</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>OTASupport</key>
+    <true/>
+    <key>OTABaseUrl</key>
+    <string>https://webtonativebeta.orufy.in/api/v1/webtonative/ota/ios/</string>
+    <key>RequestId</key>
+    <string>695798afb848ccf199904c46</string>
+    <key>PlatformVersion</key>
+    <string>1.0.0</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>GADIsAdManagerApp</key>
