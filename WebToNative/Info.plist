@@ -18,15 +18,6 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-    <key>LSMinimumSystemVersion</key>
-    <string>12.0</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<false/>
-	</dict>
-	<key>GIDClientID</key>
-	<string>118585510245-ph3t2bnuce9on1valolg0tbdqcvvjshh.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -61,10 +52,14 @@
 	<string>5e8f61860e150c7dfbed9ca907566114</string>
 	<key>FacebookDisplayName</key>
 	<string>Test Login App</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>GADIsAdManagerApp</key>
 	<string>true</string>
+	<key>GIDClientID</key>
+	<string>118585510245-ph3t2bnuce9on1valolg0tbdqcvvjshh.apps.googleusercontent.com</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -72,14 +67,23 @@
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 	</array>
+	<key>LSMinimumSystemVersion</key>
+	<string>12.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>This app uses Bluetooth to connect to supported card readers.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth access is required to connect to supported bluetooth card readers.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This app need to permission to use calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Access to the camera is necessary to capture images and videos within the app, which are utilised for customisation purposes or app functionality</string>
 	<key>NSContactsUsageDescription</key>
@@ -93,13 +97,11 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is used for enhanced user experience showing results related to your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-    <string>Need microphone access for capturing audio.</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Need access to your camera roll to upload photos.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Need access to your camera roll to upload photos.</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>This app need to permission to use calendar</string>
+	<string>Need microphone access for capturing audio.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need access to your camera roll to upload photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need access to your camera roll to upload photos.</string>
 	<key>OneSignal_suppress_launch_urls</key>
 	<true/>
 	<key>SKAdNetworkItems</key>
@@ -282,7 +284,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>FirebaseAppDelegateProxyEnabled</key>
-    <false/>
 </dict>
 </plist>
