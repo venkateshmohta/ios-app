@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# ============================================
+# Post-Commit Hook - iOS Auto Version Bump
+# ============================================
+
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+LOCK_FILE="$PROJECT_ROOT/.git/version_bump_lock"
+
+# Prevent infinite loop - check lock file
+if [ -f "$LOCK_FILE" ]; then
+  rm -f "$LOCK_FILE"
+  exit 0
+fi
+
+# Only run on main or beta
+if [ "$current_branch" != "main" ] && [ "$current_branch" != "beta" ]; then
+  exit 0
+fi
+
+# Get the commit message
+commit_msg=$(git log -1 --pretty=%B)
+
+# Skip if already a version bump commit
+if echo "$commit_msg" | grep -q "\[skip ci\]"; then
+  exit 0
+fi
+
+if echo "$commit_msg" | grep -q "Auto: bump version"; then
+  exit 0
+fi
+
+# Check for version keyword
+HAS_MAJOR=$(echo "$commit_msg" | grep -ci "release:major" || true)
+HAS_MINOR=$(echo "$commit_msg" | grep -ci "release:minor" || true)
+HAS_PATCH=$(echo "$commit_msg" | grep -ci "release:patch" || true)
+
+TOTAL=$((HAS_MAJOR + HAS_MINOR + HAS_PATCH))
+
+# No version keyword, skip
+if [ "$TOTAL" -eq 0 ]; then
+  exit 0
+fi
+
+# Determine bump type
+bump_type="patch"
+if [ "$HAS_MAJOR" -gt 0 ]; then
+  bump_type="major"
+elif [ "$HAS_MINOR" -gt 0 ]; then
+  bump_type="minor"
+fi
+
+echo ""
+echo "📦 Auto version bump: $bump_type"
+
+# Run version bump
+"$PROJECT_ROOT/scripts/version-bump.sh" "$bump_type"
+
+if [ $? -ne 0 ]; then
+  echo "❌ Version bump failed"
+  exit 0
+fi
+
+# Stage files
+git add "$PROJECT_ROOT/version.txt"
+git add "$PROJECT_ROOT/WebToNative/Info.plist"
+
+# Check if there are changes
+if git diff --staged --quiet; then
+  exit 0
+fi
+
+# Create lock file BEFORE amend to prevent loop
+touch "$LOCK_FILE"
+
+# Amend the commit to include version files
+git commit --amend --no-edit --no-verify
+
+echo "✅ Version files added to your commit"
+echo ""

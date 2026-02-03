@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  WebToNative
+
+  Created by Himanshu Khantwal on 12/09/22.
+  Copyright © 2022 WebToNative. All rights reserved.
+*/
+
+"common.ok" = "Ok";
+"common.cancel" = "Cancel·lar";
+"common.submit" = "Presentar";
+"biometric.error.title" = "Error";
+"biometric.error.message" = "Biomètric obligatori per accedir a l'aplicació";
+"biometric.error.okTitle" = "Descobrir";
+"newVersionAvailable" = "Nova versió disponible";
+"update" = "Actualització";
+"skipThisVersion" = "Omet aquesta versió";
+"alertMsgNewVersion" = "Hi ha una versió nova disponible per descarregar! Si us plau, actualitzeu l'aplicació visitant l'Apple Store.";
+"nointernet.oops" = "Vaja!";
+"nointernet.text" = "Connexió a Internet lenta o sense connexió";
+"nointernet.subtext" = "Comproveu la vostra configuració de connexió";
+"nointernet.tryagain" = "Torna-ho a provar";

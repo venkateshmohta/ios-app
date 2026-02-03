@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# ============================================
+# Pre-Push Hook - iOS Validate Only
+# ============================================
+
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+echo ""
+echo "🔍 Current branch: $current_branch"
+
+# Only run on main or beta
+if [ "$current_branch" != "main" ] && [ "$current_branch" != "beta" ]; then
+  echo "✅ Not on main/beta, skipping"
+  exit 0
+fi
+
+# Get the remote tracking branch
+remote_sha=$(git rev-parse origin/$current_branch 2>/dev/null || echo "")
+
+# Get commits to be pushed
+if [ -z "$remote_sha" ]; then
+  UNPUSHED_MSGS=$(git log -10 --pretty=format:"%s")
+else
+  UNPUSHED_MSGS=$(git log $remote_sha..HEAD --pretty=format:"%s" 2>/dev/null)
+fi
+
+echo "📝 Commits to push:"
+echo "$UNPUSHED_MSGS"
+echo ""
+
+# Skip if no commits
+if [ -z "$UNPUSHED_MSGS" ]; then
+  echo "✅ No commits to push"
+  exit 0
+fi
+
+# Check for version keyword or bump commit
+HAS_KEYWORD=$(echo "$UNPUSHED_MSGS" | grep -ciE "release:(major|minor|patch)" || true)
+HAS_BUMP=$(echo "$UNPUSHED_MSGS" | grep -ci "\[skip ci\]" || true)
+HAS_AUTO=$(echo "$UNPUSHED_MSGS" | grep -ci "Auto: bump version" || true)
+
+if [ "$HAS_KEYWORD" -eq 0 ] && [ "$HAS_BUMP" -eq 0 ] && [ "$HAS_AUTO" -eq 0 ]; then
+  echo ""
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "❌ PUSH BLOCKED"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+  echo "No version keyword found."
+  echo ""
+  echo "Amend your commit:"
+  echo "  git commit --amend -m \"release:patch your message\""
+  echo ""
+  exit 1
+fi
+
+echo "✅ Push allowed"
+exit 0

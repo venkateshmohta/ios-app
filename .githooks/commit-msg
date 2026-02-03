@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# ============================================
+# Commit Message Validation Hook - iOS
+# ============================================
+
+commit_msg=$(cat "$1")
+
+# Skip version bump commits
+if echo "$commit_msg" | grep -q "\[skip ci\]"; then
+  exit 0
+fi
+
+if echo "$commit_msg" | grep -q "Auto: bump version"; then
+  exit 0
+fi
+
+# Check for version keyword
+if ! echo "$commit_msg" | grep -qiE "release:(major|minor|patch)"; then
+  echo ""
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "❌ COMMIT BLOCKED"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+  echo "Commit message MUST include a version keyword:"
+  echo ""
+  echo "  release:major  → Sprint release (x.0.0)"
+  echo "  release:minor  → Feature release (0.x.0)"
+  echo "  release:patch  → Bug fix (0.0.x)"
+  echo ""
+  echo "Examples:"
+  echo "  git commit -m \"release:patch fix login bug\""
+  echo "  git commit -m \"release:minor add dark mode\""
+  echo "  git commit -m \"release:major sprint 5 release\""
+  echo ""
+  exit 1
+fi
+
+echo "✅ Version keyword found"
+exit 0

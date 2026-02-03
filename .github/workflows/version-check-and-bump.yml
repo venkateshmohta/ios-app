@@ -1,0 +1,201 @@
+name: Version Check and Bump
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, closed]
+    branches: [main, beta]
+  push:
+    branches: [main, beta]
+
+jobs:
+  # Validates keyword exists on PR
+  validate-pr:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for version keyword
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          
+          git fetch origin ${{ github.base_ref }}
+          COMMITS=$(git log origin/${{ github.base_ref }}..HEAD --pretty=format:"%s" 2>/dev/null || echo "")
+          
+          ALL_TEXT="$PR_TITLE $COMMITS"
+          
+          echo "Checking: $ALL_TEXT"
+          
+          if echo "$ALL_TEXT" | grep -qiE "release:(major|minor|patch)"; then
+            echo "✅ Version keyword found"
+          else
+            echo "::error::❌ No version keyword found (release:major, release:minor, or release:patch)"
+            exit 1
+          fi
+
+  # Bumps version AFTER PR merge
+  bump-on-pr-merge:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Get target branch
+        id: branch
+        run: |
+          TARGET_BRANCH="${{ github.event.pull_request.base.ref }}"
+          echo "target=$TARGET_BRANCH" >> $GITHUB_OUTPUT
+          echo "Target branch: $TARGET_BRANCH"
+
+      - name: Get version from target branch (before merge)
+        id: main-version
+        run: |
+          MERGE_SHA="${{ github.event.pull_request.merge_commit_sha }}"
+          
+          echo "Merge commit: $MERGE_SHA"
+          
+          # Get the first parent (target branch before merge)
+          MAIN_PARENT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/commits/$MERGE_SHA" \
+            | jq -r '.parents[0].sha')
+          
+          echo "Target branch parent commit: $MAIN_PARENT"
+          
+          # Get version.txt from that commit
+          VERSION=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/contents/version.txt?ref=$MAIN_PARENT" \
+            | jq -r '.content' | base64 -d | head -1 | tr -d ' \r\n')
+          
+          echo "Target branch version (before merge): $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Checkout target branch (after merge)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.branch.outputs.target }}
+          fetch-depth: 0
+
+      - name: Get bump type from PR
+        id: bump
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_BODY="${{ github.event.pull_request.body }}"
+          
+          # Fetch PR commits via API
+          PR_COMMITS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" \
+            | jq -r '.[].commit.message' | tr '\n' ' ')
+          
+          ALL_TEXT="$PR_TITLE $PR_BODY $PR_COMMITS"
+          
+          echo "PR Title: $PR_TITLE"
+          echo "PR Commits: $PR_COMMITS"
+          
+          if echo "$ALL_TEXT" | grep -qi "release:major"; then
+            echo "type=major" >> $GITHUB_OUTPUT
+            echo "✅ MAJOR bump"
+          elif echo "$ALL_TEXT" | grep -qi "release:minor"; then
+            echo "type=minor" >> $GITHUB_OUTPUT
+            echo "✅ MINOR bump"
+          elif echo "$ALL_TEXT" | grep -qi "release:patch"; then
+            echo "type=patch" >> $GITHUB_OUTPUT
+            echo "✅ PATCH bump"
+          else
+            echo "type=none" >> $GITHUB_OUTPUT
+            echo "⚠️ No bump type found"
+          fi
+
+      - name: Calculate new version
+        if: steps.bump.outputs.type != 'none'
+        id: new
+        run: |
+          VERSION="${{ steps.main-version.outputs.version }}"
+          
+          echo "Starting from target branch version: $VERSION"
+          
+          # Validate version format
+          if ! echo "$VERSION" | grep -qE "^[0-9]+\.[0-9]+\.[0-9]+$"; then
+            echo "::error::Invalid version format: $VERSION"
+            exit 1
+          fi
+          
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          
+          echo "Parsed: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
+          
+          case "${{ steps.bump.outputs.type }}" in
+            major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+            minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+            patch) PATCH=$((PATCH + 1)) ;;
+          esac
+          
+          NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+          
+          echo "New version: $NEW_VERSION"
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update version files
+        if: steps.bump.outputs.type != 'none'
+        run: |
+          NEW_VERSION="${{ steps.new.outputs.version }}"
+          
+          # Update version.txt
+          echo "$NEW_VERSION" > version.txt
+          
+          # Update PlatformVersion in Info.plist using PlistBuddy
+          /usr/libexec/PlistBuddy -c "Set :PlatformVersion $NEW_VERSION" WebToNative/Info.plist
+          
+          echo "Updated version.txt:"
+          cat version.txt
+          
+          echo ""
+          echo "Updated PlatformVersion in Info.plist:"
+          /usr/libexec/PlistBuddy -c "Print :PlatformVersion" WebToNative/Info.plist
+
+      - name: Commit and push
+        if: steps.bump.outputs.type != 'none'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add version.txt WebToNative/Info.plist
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          OLD_VERSION="${{ steps.main-version.outputs.version }}"
+          NEW_VERSION="${{ steps.new.outputs.version }}"
+          BUMP_TYPE="${{ steps.bump.outputs.type }}"
+          TARGET_BRANCH="${{ steps.branch.outputs.target }}"
+          
+          git commit -m "Auto: bump version $OLD_VERSION → $NEW_VERSION ($BUMP_TYPE)"
+          git push origin $TARGET_BRANCH
+          
+          echo "✅ Version bumped: $OLD_VERSION → $NEW_VERSION on $TARGET_BRANCH"
+
+  # Always passes for direct push
+  validate-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate push
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          
+          if echo "$COMMIT_MSG" | grep -q "\[skip ci\]"; then
+            echo "✅ Version bump commit - skipping"
+            exit 0
+          fi
+          
+          if echo "$COMMIT_MSG" | grep -q "Auto: bump version"; then
+            echo "✅ Auto version bump commit - skipping"
+            exit 0
+          fi
+          
+          echo "✅ Direct push validated by local hooks"

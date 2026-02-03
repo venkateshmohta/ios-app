@@ -1,0 +1,972 @@
+{
+    "websiteLink": "https://webtonativebeta.orufy.in/",
+    "oneSignalId": "347b5f53-bda5-4a27-8693-1f58c1404735",
+    "globalCssString": "",
+    "globalJsString": "",
+    "enableFullScreen": false,
+    "pullToRefresh": true,
+    "openLinkInSameWebview" : true,
+    "showTopSafeArea": true,
+    "statusBarColor": "#ffffff",
+    "safeArea": true,
+    "safeAreaColor": "#efefef",
+    "splashIconWidth": 200,
+    "splashIconHeight": 200,
+    "loopTimes": 0,
+    "splashTiming": null,
+    "cookiePersistence":{
+        "days": "800",
+        "domains":[
+            {
+                "domain": "webtonetive.netlify.app",
+                "keys": ["persistentCookie", "secureCookie"]
+            }
+        ]
+    },
+    "loopAnimation": false,
+    "splashFullScreen": false,
+    "animationEndType": "onAnimationEnd",
+    "splashHidePercent": 0.7,
+    "disableCaching": false,
+    "disableWebViewOverScrolling": false,
+    "onesignalNotificationOptInOptOut": false,
+    "maxProgress": 0.85,
+    "keepScreenOn": false,
+    "enableScrollingOnPageLoading": false,
+    "transitionColorIsBlack": true,
+    "disableNotificationInForeground": false,
+    "addCallbackOnAppResume": false,
+    "hideForegroundNotificationBanner": false,
+    "limitNavigationToAppBounds": true,
+    "customUrlScheme": "wton",
+    "requestTrackingConsentOnLoad": false,
+    "oneSignalSoftPrompt": false,
+    "customUserAgent": {
+       "type": "APPEND",
+       "value": "w2n/iOS"
+    },
+    "pageNavigationLoader": true,
+    "navigationLoader": {
+        "animationBgColor": "#f5f5f5",
+        "animationJsonUrl": "https://assets.orufy.com/animation1_3786ede288.json",
+        "animationShape": "RECTANGLE",
+        "animationSize": "MEDIUM",
+        "loaderColor": "#0029FF",
+        "bgColor": "#FFFFFF",
+        "type": "LottieAnimation",
+        "enableShadow": false,
+        "loadPercentOffset": 0.8
+    },
+    "splash": {
+        "customizationType": "WITH_ANIMATION",
+        "backgroundColor": "#ff725e",
+        "useAppIconForSplash": true,
+        "animationBGColor": "#abcdef",
+        "splashJsonPath": "https://beta-webtonative-user-uploads.s3.ap-south-1.amazonaws.com/IgL4wFH66ha2yBUp0vNr/lottie-json/XR3C/C1HY/240P/GZK3/X5VH/1760069481870/Animation_1732080989496.json",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/temp%2Ficon_android1759314944109.jpg?alt=media&token=e90337e1-5850-478a-9376-28b3c19ea10b"
+    },
+    "showCustomAlert":{
+        "enable": true,
+        "enableUrlRegex" : "",
+        "disableUrlRegex": ""
+    },
+    "enableAdMob": false,
+    "admobAds": {
+        "data": [
+            {
+                "regex": ".*",
+                "initialShowDelay": 0,
+                "adType": "BANNER",
+                "adId": "ca-app-pub-3940256099942544/6300978111",
+                "position": "BOTTOM",
+                "urlType": "SINGLE_PAGE",
+                "url": "https://webtonetive.netlify.app/frontend"
+            },
+            {
+                "regex": "(^https://beta\\.orufy\\.in/$)",
+                "initialShowDelay": 0,
+                "adType": "FULLSCREEN",
+                "adId": "ca-app-pub-3940256099942544/1033173712",
+                "urlType": "SINGLE_PAGE",
+                "url": "https://beta.orufy.in/"
+            },
+            {
+                "regex": "(^https://www\\.webtonative\\.com/)",
+                "initialShowDelay": 0,
+                "adType": "REWARD",
+                "adId": "ca-app-pub-3940256099942544/5224354917",
+                "urlType": "MULTIPLE_PAGE",
+                "url": "https://www.webtonative.com/"
+            }
+        ]
+    },
+    "noInternet": true,
+    "noInternetData": {
+       "bgColor": "#FFFFFF",
+       "pages": [
+           {
+               "elements": [
+                   {
+                       "fileName": "no_internet.png",
+                       "fileUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/user-uploads%2FJnEsGYO67yYziwPpChL8%2Fuser-upload%2Ficon_ANDROID1699509452490.png?alt=media&token=4b7b7bfc-b832-4e70-b13a-cbb9d3788a09",
+                       "type": "image"
+                   },
+                   {
+                       "fontSize": 32,
+                       "type": "text",
+                       "value": "Oops!",
+                       "textColor": "#363942",
+                       "fontWeight": 700
+                   },
+                   {
+                       "fontSize": 14,
+                       "type": "text",
+                       "value": "Slow or No Internet Connection Please check your connection settings",
+                       "textColor": "#363942",
+                       "fontWeight": 400
+                   }
+               ],
+               "topMarginPercent": 14
+           }
+       ],
+       "actionButtons": [
+           {
+               "btnBgColor": "#363942",
+               "borderColor": "#363942",
+               "borderWidth": 4,
+               "text": "Try Again",
+               "roundedCornerPercent": 8,
+               "textColor": "#ffffff"
+           }
+       ]
+   },
+    "bottomNavigation": {
+      "active": true,
+      "data": [
+        {
+          "regEx": ".*",
+          "fontFamily": "Arial",
+          "fontSize": 12,
+          "iconFontSize": 23,
+          "height": 50,
+          "mapping": [
+            {
+              "link": "",
+              "type": "all"
+            }
+          ],
+          "textColor": "#000000",
+          "iconColor": "#000000",
+          "bgColor": "#FFFFFF",
+          "iconWeight": "REGULAR",
+          "tabs": [
+            {
+              "label": "Home",
+              "link": "https://simpleey.io/",
+              "icon": "fas fa-address-book"
+            }
+          ]
+        }
+      ]
+    },
+    "floatingButton": {
+       "active": true,
+       "data": [
+           {
+               "bgColor": "#ffffff",
+               "fileName": "fab_image/fab_icon_0.png",
+               "fileUrl": "https://beta-webtonative-user-uploads.s3.ap-south-1.amazonaws.com/IgL4wFH66ha2yBUp0vNr/8W1A/5A2O/Q6TM/1PXE/SI52/1760070711030/1024_1024.png",
+               "shape": "CIRCULAR",
+               "position": "RIGHT",
+               "url": "https://fakestoreapi.com/products/1",
+               "regex": ".*",
+               "mapping": [
+                   {
+                       "link": "",
+                       "type": "all"
+                   }
+               ]
+           }
+       ]
+   },
+    "w2nHeader": {
+        "active": true,
+        "data": [
+            {
+                "tabs": [
+                    {
+                        "url": "",
+                        "icon": "fas fa-bars",
+                        "type": "expandable_button",
+                        "label": "Home",
+                        "iconColor": "#ffffff",
+                        "iconBgColor": "#1d1a1a",
+                        "expandableIcons": [
+                            {
+                                "url": "https://fakestoreapi.com/products/1",
+                                "icon": "fas fa-address-book",
+                                "label": "Contacts",
+                                "iconColor": "#ffffff",
+                                "iconBgColor": "#ffffff",
+                                "iconStrokeColor": "#ffffff00",
+                                "iconStrokeWidth": 0,
+                                "iconBorderRadius": 0,
+                                "id": "dec60a7a-a560-48a9-9f05-6b36d961598e"
+                            }
+                        ],
+                        "iconStrokeColor": "#ffffff",
+                        "iconStrokeWidth": 0,
+                        "iconBorderRadius": 0,
+                        "expandableMenuStyle": "icon_and_text",
+                        "id": "9a267058-4840-4282-999b-20133afc89e9",
+                        "isHidden": false
+                    },
+                    {
+                        "url": "https://fakestoreapi.com/products/1",
+                        "icon": "img-101a4d3a-4131-41b9-967a-7e00a8a67d5f",
+                        "type": "logo",
+                        "label": "Acme.Inc",
+                        "id": "101a4d3a-4131-41b9-967a-7e00a8a67d5f",
+                        "isHidden": false
+                    },
+                    {
+                        "url": "https://fakehvhvghghjjhgjgjhgjhhgjhghjgjstoreapi.com/products",
+                        "icon": "fas fa-user-circle",
+                        "type": "icon",
+                        "label": "",
+                        "iconColor": "#ffffff",
+                        "iconBgColor": "#1d1a1a",
+                        "iconStrokeColor": "#ffffff",
+                        "iconStrokeWidth": 0,
+                        "iconBorderRadius": 0,
+                        "id": "3290ba36-b8b9-44ec-98f7-1bac7d841e94",
+                        "isHidden": false
+                    }
+                ],
+                "regex": ".*",
+                "mapping": [
+                    {
+                        "link": "",
+                        "type": "all"
+                    }
+                ],
+                "logoConfig": {
+                    "logoColor": "#ffffff",
+                    "logoPosition": "left"
+                },
+                "headerConfig": {
+                    "headerBgColor": "#1d1a1a",
+                    "enableFloatingHeader": false
+                },
+                "defaultIconConfig": {
+                    "iconColor": "#ffffff",
+                    "iconBgColor": "#1d1a1a",
+                    "iconStrokeColor": "#ffffff",
+                    "iconStrokeWidth": 0,
+                    "iconBorderRadius": 0
+                },
+                "overRideIconStyle": false
+            }
+        ],
+        "images": {
+            "img-101a4d3a-4131-41b9-967a-7e00a8a67d5f": "https://assets.orufy.in/logo_dark_f3c11b9ef6.svg"
+        }
+    },
+    "enableCustomBackHandling": {
+       "enable": false,
+       "regEx": ".*"
+   },
+    "notificationPermissionOnLaunch": {
+        "enable": true
+    },
+
+    "internalExternalLinks": [
+        {
+            "type": "EXTERNAL",
+            "label": "Non-web links",
+            "regex": "^(?!https?://).*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Facebook",
+            "regex": "https?://([-\\w]+\\.)*facebook\\.com.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Twitter",
+            "regex": "https?://([-\\w]+\\.)*twitter\\.com/.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Instagram",
+            "regex": "https?://([-\\w]+\\.)*instagram\\.com/.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Google Maps",
+            "regex": "https?://maps\\.google\\.com.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Google Maps Search",
+            "regex": "https?://([-\\w]+\\.)*google\\.com/maps/search/.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "LinkedIn",
+            "regex": "https?://([-\\w]+\\.)*linkedin\\.com/.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "EXTERNAL",
+            "label": "Whatsapp",
+            "regex": "https?://([-\\w]+\\.)*whatsapp\\.com/.*",
+            "pageType": "CUSTOM"
+        },
+        {
+            "type": "INTERNAL",
+            "label": "All Other Links",
+            "regex": ".*",
+            "pageType": "ALL_PAGES"
+        }
+    ],
+    "ONBOARDING_SCREEN": {
+        "data": {
+            "enable": false,
+            "version": 8,
+            "bgColor": "#ffffff",
+            "showAlways": true,
+            "showOnAppUpdate": false,
+            "showOnInterval": {
+                "isActive": false,
+                "intervalInDays": 0
+            },
+            "pageIndicator": {
+                "inactiveColor": "#AAAAAA",
+                "activeColor": "#494949",
+                "position": "bottom",
+                "type": "circle"
+            },
+            "actionButtons": [
+                {
+                    "btnBgColor": "#8153cc",
+                    "borderColor": "#8153cc",
+                    "borderWidth": 4,
+                    "text": "Register Now",
+                    "roundedCornerPercent": 8,
+                    "textColor": "#ffffff",
+                    "url": "#"
+                },
+                {
+                    "btnBgColor": "#ffffff",
+                    "borderColor": "#8153cc",
+                    "borderWidth": 4,
+                    "text": "Login",
+                    "roundedCornerPercent": 8,
+                    "textColor": "#8153cc",
+                    "url": "#"
+                }
+            ],
+            "skipButton": {
+                "btnBgColor": "#ffffff",
+                "borderColor": "#ffffff",
+                "borderWidth": 0,
+                "text": "Skip",
+                "roundedCornerPercent": 50,
+                "textColor": "#000000"
+            },
+            "pages": [
+                {
+                    "showSkipButton": true,
+                    "elements": [
+                        {
+                            "fileName": "page1.png",
+                            "fileUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/user-uploads%2F5fJ86hD33AJJdztD1c5V%2Fonboarding-pages%2Ficon_ANDROID1696656813884.png?alt=media&token=01792979-88be-4040-9e6d-e40c3550aa5f",
+                            "type": "image"
+                        },
+                        {
+                            "fontSize": 32,
+                            "type": "text",
+                            "value": "Engage with customers",
+                            "textColor": "#363942",
+                            "fontWeight": 700
+                        },
+                        {
+                            "fontSize": 14,
+                            "type": "text",
+                            "value": "Chat with your customers, anytime, anywhere with ease",
+                            "textColor": "#363942",
+                            "fontWeight": 400
+                        }
+                    ],
+                    "topMarginPercent": 7
+                },
+                {
+                    "showSkipButton": true,
+                    "elements": [
+                        {
+                            "fileName": "page2.png",
+                            "fileUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/user-uploads%2F5fJ86hD33AJJdztD1c5V%2Fonboarding-pages%2Ficon_ANDROID1696656922809.png?alt=media&token=20f39624-1633-4db8-8131-81515c370c72",
+                            "type": "image"
+                        },
+                        {
+                            "fontSize": 32,
+                            "type": "text",
+                            "value": "Add notes",
+                            "textColor": "#363942",
+                            "fontWeight": 700
+                        },
+                        {
+                            "fontSize": 14,
+                            "type": "text",
+                            "value": "Add notes for your contacts to organize information in a structured way",
+                            "textColor": "#363942",
+                            "fontWeight": 400
+                        }
+                    ],
+                    "topMarginPercent": 7
+                },
+                {
+                    "showSkipButton": true,
+                    "elements": [
+                        {
+                            "fileName": "page3.png",
+                            "fileUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/user-uploads%2F5fJ86hD33AJJdztD1c5V%2Fonboarding-pages%2Ficon_ANDROID1696656996829.png?alt=media&token=722f8c1e-c68a-404f-8c28-82a2d3fd1d65",
+                            "type": "image"
+                        },
+                        {
+                            "fontSize": 32,
+                            "type": "text",
+                            "value": "Add tags",
+                            "textColor": "#363942",
+                            "fontWeight": 700
+                        },
+                        {
+                            "fontSize": 14,
+                            "type": "text",
+                            "value": "Add tags to sort information making it easier to access content when you need it",
+                            "textColor": "#363942",
+                            "fontWeight": 400
+                        }
+                    ],
+                    "topMarginPercent": 14
+                },
+                {
+                    "showSkipButton": true,
+                    "elements": [
+                        {
+                            "fileName": "page4.png",
+                            "fileUrl": "https://firebasestorage.googleapis.com/v0/b/web-to-native-dev.appspot.com/o/user-uploads%2F5fJ86hD33AJJdztD1c5V%2Fonboarding-pages%2Ficon_ANDROID1696657066002.png?alt=media&token=923d0a47-1cc4-42a5-a99b-523aee0883fe",
+                            "type": "image"
+                        },
+                        {
+                            "fontSize": 32,
+                            "type": "text",
+                            "value": "Assign chats",
+                            "textColor": "#363942",
+                            "fontWeight": 700
+                        },
+                        {
+                            "fontSize": 14,
+                            "type": "text",
+                            "value": "Assign chats to others for faster responses and happier customers",
+                            "textColor": "#363942",
+                            "fontWeight": 400
+                        }
+                    ],
+                    "topMarginPercent": 16
+                }
+            ]
+        },
+        "adonId": "Y2s57Wk3A5s87dZVQnI1",
+        "active": true
+    },
+    "IN_APP_PURCHASE" : {
+        "data":{
+            "enable":false
+        }
+    },
+    "FB_ANALYTICS": {
+        "data":{
+            "enable":false
+        }
+    },
+    "FIREBASE_ANALYTICS": {
+        "data":{
+            "enable":false
+        }
+    },
+    "FIREBASE_NOTIFICATION": {
+        "data":{
+            "enable": true
+        }
+    },
+    "HAPTIC_FEEDBACK": {
+        "data":{
+            "enable":false
+        }
+    },
+    "DISABLE_SCREENSHOT" : {
+        "data":{
+            "enable" : false,
+            "screenShotBlocked" : false,
+            "regEx": ".*"
+        }
+    },
+    "ADVANCED_BOTTOM_NAVIGATION": {
+          "adonId": "VqHVRAg6zJ7VQirc1l0r",
+          "active": true,
+          "data": [
+            {
+              "tabs": [
+                {
+                  "url": "https://documentation.onesignal.com/docs/generate-firebase-credentials",
+                  "icon": "fas fa-home",
+                  "type": "icon",
+                  "label": "Home",
+                  "id": "6464c2cb-8a8f-494d-af41-09edd8c6398a",
+                  "expandableIcons": [
+                    {
+                      "id": "bbe48ed4-38f9-42bc-9b3c-685bf1f5cf4c",
+                      "icon": "fas fa-arrow-alt-circle-down",
+                      "label": "Acme.Inc",
+                      "url": "https://documentation.onesignal.com/docs/generate-firebase-credentials"
+                    }
+                  ],
+                  "isExpandable": true
+                },
+                {
+                  "url": "https://www.youtube.com",
+                  "icon": "fas fa-store",
+                  "type": "icon",
+                  "label": "Shop",
+                  "id": "cc51597b-4c0c-4988-be06-7b16e5928dc5"
+                },
+                {
+                  "url": "https://w3schools.com",
+                  "icon": "md mi-add",
+                  "type": "floating_button",
+                  "label": "Add",
+                  "floatingBtnPosition": "Outward",
+                  "id": "bd3b4002-f23e-49ba-b086-e865195fdaf1",
+                  "expandableIcons": [
+                    {
+                      "id": "ae24d814-8ff6-489f-a165-fd01a2f142fb",
+                      "icon": "lu-youtube",
+                      "label": "Home",
+                      "url": "https://www.youtube.com"
+                    }
+                  ],
+                  "isExpandable": false
+                },
+                {
+                  "url": "https://www.youtube.com",
+                  "icon": "ri-alarm-warning-fill",
+                  "type": "icon",
+                  "label": "Cart",
+                  "id": "16ad5544-5ba9-4d8e-a28b-7fc9050374ed"
+                },
+                {
+                  "url": "https://youtube.com",
+                  "icon": "ph-fill ph-calendar-dot",
+                  "type": "icon",
+                  "label": "Account",
+                  "id": "6401dbd5-aae5-40b3-83fc-46aef97cb95b"
+                }
+              ],
+              "regex": ".*",
+              "bgColor": "#1f1f1f",
+              "mapping": [
+                {
+                  "link": "",
+                  "type": "all"
+                }
+              ],
+              "iconColor": "#808080",
+              "showShadow": true,
+              "activeColor": "#FF4A26",
+              "cornerRadius": 8,
+              "floatingBtnBgColor": "#FF4A26",
+              "hideOnKeyboardOpen": true,
+              "floatingBtnIconColor": "#FFFFFF"
+            }
+        ]
+    },
+    "FLOATING_ACTION_MENU": {
+        "data": [
+            {
+                "icon": "fas fa-plus",
+                "tabs": [
+
+                    {
+                        "url": "https://w3schools.com",
+                        "icon": "fab fa-rocketchat",
+                        "type": "icon",
+                        "label": "Notification"
+                    },
+                    {
+                        "url": "https://hi.com",
+                        "icon": "md md-search",
+                        "type": "icon",
+                        "label": "Search"
+                    },
+                    {
+                        "url": "https://youtube.com",
+                        "icon": "fas fa-cog",
+                        "type": "icon",
+                        "label": "Settings"
+                    },
+                    {
+                        "url": "https://w3schools.com",
+                        "icon": "fas fa-comment",
+                        "type": "icon",
+                        "label": "Messages"
+                    },
+                    {
+                        "url": "https://hi.com",
+                        "icon": "fas fa-cog",
+                        "type": "icon",
+                        "label": "Movie"
+                    },
+                    {
+                        "url": "https://youtube.com",
+                        "icon": "fas fa-comment",
+                        "type": "icon",
+                        "label": "To"
+                    }
+
+                ],
+                "regex": ".*",
+                "bgColor": "#ff4a26",
+                "position": "left",
+                "showLabel": true,
+                "textColor": "#ffffff",
+                "menuBgColor": "#090909",
+                "menuTextColor": "#FFFFFF"
+            },{
+                "icon": "fas fa-plus",
+                "tabs": [
+
+                    {
+                        "url": "",
+                        "icon": "fas fa-cog",
+                        "type": "icon",
+                        "label": "Settings"
+                    },
+                    {
+                        "url": "",
+                        "icon": "fas fa-comment",
+                        "type": "icon",
+                        "label": "Messages"
+                    }
+                ],
+                "regex": ".*",
+                "bgColor": "#ff4a26",
+                "position": "right",
+                "showLabel": false,
+                "textColor": "#ffffff",
+                "menuBgColor": "#090909",
+                "menuTextColor": "#FFFFFF"
+            }
+        ]
+    },
+    "APPS_FLYER" : {
+        "data": {
+            "enable" : false,
+            "devKey" : "dYeDcgu8A7Pz9rPnG5EyQK"
+        }
+    },
+    "SOCIAL_LOGIN":{
+        "data":{
+            "enable" : true
+        }
+    },
+    "BIOMETRIC":{
+        "data":{
+            "enable": true,
+            "showOnLoad": false,
+            "enableDomainWhitelisting": true,
+            "whiteListDomains":["http://webtonative.com/blog"],
+            "hideBackground" : false
+        }
+    },
+  "customRequestHeaders": [
+      {
+      "name": "X-Custom-Header",
+      "value": "webtonative"
+    },{
+      "name": "Platform",
+      "value": "platform"
+    },{
+      "name": "appId",
+      "value": "appId"
+    }
+    ],
+    "BACKGROUND_LOCATION": {
+        "data":{
+            "enable":false
+        }
+    },
+    "NATIVE_CONTACTS": {
+        "data":{
+            "enable":false
+        }
+    },
+    "DOWNLOAD_MANAGER": {
+        "data": {
+            "enable": true,
+            "showOfflineOnNoInternetScreen": true,
+            "title": "Downloads",
+            "titleBarBgColor": "#ff745c",
+            "titleBarContentColor": "#ffffff",
+            "downloadButtonText": "Open Offline Downloads",
+            "btnBgColor": "#363942",
+            "borderColor": "#363942",
+            "borderWidth": 4,
+            "roundedCornerPercent": 16,
+            "textColor": "#ffffff"
+        },
+        "adonId": "AiFvYvZvP7uJsfvkRsTv",
+        "active": true
+    },
+    "barcodeScan": {
+        "data": {
+            "enable": false
+        }
+    },
+    "INTERCOM": {
+        "data":{
+            "enable": true,
+            "apiKey": "ios_sdk-9245d1a9162ab69689c4688fef5343787fd591f8",
+            "appId": "uwivr12t"
+        }
+    },
+    "NATIVE_DATA_STORE":{
+        "data":{
+            "enable": true
+        }
+    },
+    "SIRI_SUPPORT":{
+        "data": {
+            "enable": true
+        }
+    },
+    "OFFER_CARD":{
+        "data":{
+            "enable":true
+        }
+    },
+    "SECONDARY_NAVIGATION": {
+        "adonId": "UlcKD3ziDspQOICnHw09",
+        "active": true,
+        "data": {
+            "menus": [
+                {
+                    "items": [
+                        {
+                            "fileUrl": "https://beta-webtonative-user-uploads.s3.ap-south-1.amazonaws.com/IgL4wFH66ha2yBUp0vNr/R975/RQPW/91Z1/VGEO/E228/1760070698544/50_50.png",
+                            "fileName": "second_nav/item_(0)(0).png",
+                            "label": "Home",
+                            "url": "https://fakestoreapi.com/products/1"
+                        }
+                    ],
+                    "textColor": "#FFFFFF",
+                    "bgColor": "#363942",
+                    "bottomMargin": 12,
+                    "regex": ".*",
+                    "mapping": [
+                        {
+                            "link": "",
+                            "type": "all"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "sidebarNavigation" : {
+      "data" : {
+        "showCrossButton" : false,
+        "bgColor" : "#4a4a4a",
+        "sidebarPlacement" : "left",
+        "tabs" : [
+          {
+            "id" : "4b8798e7-2dc1-4eec-982b-7e439f80b0f2",
+            "label" : "WebToNative",
+            "showAppIcon" : true,
+            "url" : "https:\/\/webtonative.com",
+            "type" : "header",
+            "headerPlacement" : "left"
+          },
+          {
+            "color" : "#000000",
+            "id" : "ea19b3b2-6fe1-43fc-a07d-9345cd7267aa",
+            "itemsPerRow" : 3,
+            "title" : "Shortcut",
+            "type" : "quickActionCards",
+            "bgColor" : "#e8e8e8",
+            "items" : [
+              {
+                "label" : "Order",
+                "icon" : "fas fa-archive",
+                "url" : "w2n://open-sidebar"
+              },
+              {
+                "label" : "Help",
+                "icon" : "fas fa-hands-helping",
+                "url" : "https:\/\/w3schools.com"
+              },
+              {
+                "label" : "Activity",
+                "icon" : "fas fa-newspaper",
+                "url" : "https:\/\/beta.orufy.in\/"
+              },
+              {
+                "label" : "Message",
+                "icon" : "fab fa-facebook-messenger",
+                "url" : "https:\/\/beta.orufy.in\/"
+              },
+              {
+                "label" : "Offer",
+                "icon" : "md mi-local-offer",
+                "url" : "https:\/\/beta.orufy.in\/"
+              }
+            ]
+          },
+          {
+            "id" : "5e1e084a-6f32-4e1b-8044-213398645f88",
+            "title" : "Menu",
+            "items" : [
+              {
+                "url" : "https:\/\/beta.orufy.in\/",
+                "icon" : "fas fa-home",
+                "label" : "Home"
+              },
+              {
+                "url" : "https:\/\/beta.orufy.in\/",
+                "icon" : "fas fa-bullseye",
+                "label" : "Feature"
+              },
+              {
+                "url" : "https:\/\/beta.orufy.in\/",
+                "icon" : "fas fa-credit-card",
+                "label" : "Pricing"
+              }
+            ],
+            "type" : "menuItems"
+          },
+          {
+            "id" : "3ed6673e-af01-42dc-a0de-bf127da9b338",
+            "title" : "Apps",
+            "items" : [
+              {
+                "label" : "Desktop Apps",
+                "icon" : "md mi-desktop-windows",
+                "subMenu" : [
+                  {
+                    "label" : "Mac",
+                    "url" : "https:\/\/w3schools.com"
+                  },
+                  {
+                    "label" : "Windows",
+                    "url" : "https:\/\/w3schools.com"
+                  },
+                  {
+                    "label" : "Linux",
+                    "url" : "https:\/\/w3schools.com"
+                  }
+                ]
+              },
+              {
+                "label" : "Mobile Apps",
+                "icon" : "md mi-smartphone",
+                "subMenu" : [
+                  {
+                    "label" : "Ios",
+                    "url" : "https:\/\/w3schools.com"
+                  },
+                  {
+                    "label" : "Android",
+                    "url" : "https:\/\/w3schools.com"
+                  }
+                ]
+              }
+            ],
+            "type" : "multiLevelMenu"
+          }
+        ],
+        "color" : "#FFFFFF"
+      }
+    },
+    "APP_SHORTCUTS" : {
+        "data": [
+            {
+                "fileName": "appshortcut1.png",
+                "url": "https://www.webtonative.com/features",
+                "label": "features"
+            },
+            {
+                "fileName": "appshortcut2.png",
+                "url": "https://www.webtonative.com/showcase",
+                "label": "showcase"
+            },
+            {
+                "fileName": "appshortcut3.png",
+                "url": "https://www.webtonative.com/pricing",
+                "label": "pricing"
+            }
+        ]
+    },
+    "enableForceReload": false,
+  "LIVE_PREVIEW": {
+    "data": {
+      "enable": true
+    }
+  },
+  "DYNAMIC_ICON": {
+      "data": [
+              {
+                  "title": "icon1",
+                  "fileUrl": "https://beta-webtonative-user-uploads.s3.ap-south-1.amazonaws.com/691569136ee3fb1065a2c3e2/CZUQ/PBE8/NG8X/GNUS/W81V/1763376569005/new_icon_iOS_Default_1024x1024_1x.jpg",
+                  "fileName": "icon1.jpg",
+                  "index": 1763376570549
+              },
+              {
+                  "title": "icon2",
+                  "fileUrl": "https://beta-webtonative-user-uploads.s3.ap-south-1.amazonaws.com/691569136ee3fb1065a2c3e2/V3QI/G5JP/AKDS/Q8B2/7RFS/1763376580641/testicon.jpg",
+                  "fileName": "icon2.jpg",
+                  "index": 1763376582206
+              }
+          ]
+      },
+  "REVENUECAT": {
+      "data":{
+          "enable": true
+      }
+  },
+  "PASSCODE": {
+    "data": {
+      "enable": false,
+      "setUpOnLaunch":false,
+      "type":"FOUR",
+      "maxAttempt":5,
+      "recoveryMethod":"REDIRECT_TO_WEBSITE",
+      "redirectURL":"",
+      "autoLockAfter":0,
+      "theme":"LIGHT",
+      "showAppIcon":true
+    }
+  },
+  "iconLibraries": [
+    "remix",
+    "phosphor",
+    "lucide"
+  ]
+}
+
