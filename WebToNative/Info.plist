@@ -102,8 +102,16 @@
 	<string>Need access to your camera roll to upload photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Need access to your camera roll to upload photos.</string>
+	<key>OTABaseUrl</key>
+	<string>https://webtonativebeta.orufy.in/api/v1/webtonative/ota/ios/</string>
+	<key>OTASupport</key>
+	<true/>
 	<key>OneSignal_suppress_launch_urls</key>
 	<true/>
+	<key>PlatformVersion</key>
+	<string>1.0.4</string>
+	<key>RequestId</key>
+	<string>695798afb848ccf199904c46</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
